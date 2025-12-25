@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas to Someone Special</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --xmas-red: #ae2012;
+            --xmas-green: #155233;
+            --snow-white: #ffffff;
+            --gold: #5e0000;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Sarabun', sans-serif;
+            background: linear-gradient(180deg, #ff0f43 0%, #ff6d6d 100%);
+            color: white;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: 'Mountains of Christmas', cursive;
+            color: var(--gold);
+        }
+
+        /* --- Snow Effect --- */
+        #snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            user-select: none;
+            z-index: 1000;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(105vh) translateX(20px); }
+        }
+
+        /* --- Content --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .main-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 8px solid var(--xmas-red);
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(174, 32, 18, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3rem; opacity: 0.9; }
+
+        /* --- Gift Box Section --- */
+        .gift-section {
+            padding: 100px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .gift-box {
+            font-size: 80px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        #secret-message {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: var(--snow-white);
+            color: var(--xmas-green);
+            border-radius: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            border-left: 10px solid var(--xmas-red);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: left;
+        }
+
+        /* --- Memory Section --- */
+        .memories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 10px;
+        }
+
+        .memory-item {
+            width: 300px;
+            background: white;
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            transform: rotate(-2deg);
+            transition: 0.3s;
+        }
+
+        .memory-item:nth-child(even) { transform: rotate(2deg); }
+        .memory-item img { width: 100%; border-radius: 5px; }
+
+        footer { padding: 50px; opacity: 0.7; }
+
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="Love.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="snow-container"></div>
+
+    <section class="hero">
+        <img src="Pat5.jfif" alt="Merry Christmas" class="main-img">
+        <h1>Merry Christmas</h1>
+        <p>ดีใจจังที่มีแพทตี้มาอยู่กับโอ๊คในคริสต์มาสปีนี้</p>
+        <p style="font-size: 1rem;">(แพทตี้เลื่อนลงมาดูข้างล่างสิิิิิ...)</p>
+    </section>
+
+    <section class="gift-section">
+        <h2>โอ๊คมีของขวัญมาให้... ลองกดเปิดดูสิ!</h2>
+        <div class="gift-box" onclick="showContent()">🎁</div>
+        
+        <div id="secret-message">
+            <h3>ถึงแพทตี้ (คนโปรดของโอ๊ค)</h3>
+            <p>คริสต์มาสปีนี้โอ๊คอยากให้แพทตี้มีแต่ความสุขครับอยากให้มีความสุขมากๆๆๆเลย, ร่างกายแข็งแรงงง</p>
+            <p>ขอบคุณแพทตี้นะครับที่เข้ามาในชีวิตของโอ๊ค, โอ๊คไม่รู้หรอกว่าเรายังอยู่ด้วยกันอีกนานไหมแต่โอ๊คจะรักษาแพทตี้ไว้ให้ดีที่สุด</p>
+            <p>โอ๊คไม่อยากจะเสียแพทตี้ไปอยากอยู่ด้วยกันไปตลอดเลย, ตลอดที่ผ่านมาแพทตี้ทำให้โอ๊คยิ้้มได้ทำให้โอ๊คมีความสุขถึงแม้โอ๊คจะเจอเรื่องแย่ๆมา</p>
+            <p>โอ๊ครักแพทตี้มากๆเลยโอ๊คไม่รู้จะหาอะไรมาอธิบายได้เลยมันแบบใหญ่ม๊ากกกกความรักของโอ๊ค, โอ๊คเด็กกว่าแพทตี้ก็จริงมันฟังแล้วเราอาจจะดูไปกันไม่รอด</p>
+            <p>คนนึงเด็กน้อยยังไม่รู้เรื่องโลกขนาดนั้น, กับอีกคนที่โตแล้ว มันฟังดูยากจริงนะแต่โอ๊คแค่อยากจะให้แพทตี้อยู่กับโอ๊คไปในทุกๆก้าวที่โอ๊คโตขึ้นอยู่กับโอ๊คไปตลอดเลย</p>
+            <p>ปีหน้าและปีต่อๆ ไปโอ๊คอยากให้แพทตี้เป็นของขวัญของโอ๊คตลอดไปเลย</p>
+            <p>รักแพทตี้นะครับ</p>
+            <p style="text-align: right; font-weight: bold;">- จากโอ๊คที่คิดถึงแพทตี้ทุกเวลา -</p>
+        </div>
+    </section>
+
+    <div class="memories">
+        <div class="memory-item">
+            <img src="Pat3.jfif" alt="Moment 1">
+            <p><b>The Beginning</b><br>วันแรกที่เราคุยกัน555555ทักกันโหดมาก</p>
+        </div>
+        <div class="memory-item">
+            <img src="Pic.jpg" alt="Moment 2">
+            <p><b>รูปที่โอ๊คกับแพทตี้อยู่ด้วยกัน</b><br>ตอนนี้ยังไม่มีแต่วันนึงเราจะเอารูปนี้มาใส่ด้วยกันนะครับ</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>อยากให้แพทตี้อยู่กับโอ๊คไปนานๆอยู่ด้วยกันไปตลอดเลยก็ได้</p>
+    </footer>
+
+    <script>
+        // ฟังก์ชันเล่นเพลง (เมื่อมีการคลิกครั้งแรกในหน้าเว็บ)
+        document.addEventListener('click', function() {
+            const audio = document.getElementById('bgMusic');
+            if (audio.paused) {
+                audio.play();
+            }
+        }, { once: true });
+
+        // ฟังก์ชันเปิดกล่องของขวัญ
+        function showContent() {
+            const msg = document.getElementById('secret-message');
+            msg.style.display = 'block';
+            msg.scrollIntoView({ behavior: 'smooth' });
+            
+            // เอฟเฟกต์เปลี่ยนไอคอน
+            document.querySelector('.gift-box').innerHTML = '💝';
+
+            // บังคับเล่นเพลงอีกครั้งเผื่อกรณียังไม่เล่น
+            const audio = document.getElementById('bgMusic');
+            audio.play();
+        }
+
+        // ฟังก์ชันสร้างหิมะ
+        function createSnow() {
+            const snowContainer = document.getElementById('snow-container');
+            const snowflake = document.createElement('div');
+            const snowflakes = ['❄', '❅', '❆', '•', '💗']; // เพิ่มหัวใจชมพูไปในหิมะด้วย
+            
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 1.5 + 0.5 + 'em';
+            snowflake.style.animationDuration = Math.random() * 3 + 4 + 's';
+            
+            snowContainer.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 7000);
+        }
+
+        setInterval(createSnow, 100);
+    </script>
+</body>
+</html>
